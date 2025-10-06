@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>InfraEduca</title>
+    <style>
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
+    background-color: #f9fafc;
+    color: #333;
+    line-height: 1.6;
+}
+ .btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    background-color: white; /* azul forte */
+    color: #1a73e8;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+ 
+  .btn-voltar::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+h1, h2, h3, h4 {
+    color: #0b2046; /* azul forte */
+}
+
+/* ===== Header Hero ===== */
+.hero {
+    background: linear-gradient(135deg, #0b2046, #2c5fbe);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 2px solid #0b2046;
+}
+
+.hero h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== Section Sobre ===== */
+.about {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.about h2 {
+    font-weight: 700;
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.about p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about .description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.agenda-highlight {
+    border: 1px solid #d0d7de;
+    background-color: #f1f5fb;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.agenda-highlight strong {
+    font-weight: 600;
+}
+
+/* ===== Features da Plataforma ===== */
+.features-platform {
+    text-align: center;
+    padding: 40px 20px 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.features-platform h2 {
+    font-weight: 700;
+    color: #0b2046;
+    margin-bottom: 6px;
+}
+
+.features-platform p {
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Cards das funcionalidades */
+.features-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #dce3eb;
+    border-radius: 8px;
+    padding: 20px 15px 30px 15px;
+    width: 220px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgb(11 82 212 / 0.3);
+}
+
+.card h3 {
+    margin: 12px 0 10px 0;
+    color: #0b52d4;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Icons placeholders - você pode substituir por SVGs ou fontes de ícones */
+.icon {
+    width: 42px;
+    height: 42px;
+    background-color:#0b2046;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Usando texto alternativo para diferenciar as classes de ícones */
+.icon.institucional::before {
+    content: "🏢";
+}
+
+.icon.comunicacao::before {
+    content: "💬";
+}
+
+.icon.participacao::before {
+    content: "👥";
+}
+
+.icon.ambiente::before {
+    content: "💙";
+}
+
+/* ===== Seção da Equipe ===== */
+.team {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.team h2 {
+    color: #0b2046;;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.team p {
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Membros */
+.feature-image img {
+     width: 400px;                 
+    height: 300px;  
+    float: right;
+
+}
+
+.members {
+    display: inline-block;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.member {
+    background-color: white;
+    border: 1px solid #dce3eb;
+    border-radius: 6px;
+    padding: 12px 20px;
+    min-width: 200px;
+    color: #333;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+    transition: background-color 0.2s ease;
+}
+.member-ori {
+    display: block;
+}
+
+.member:hover {
+    background-color: #f4f8ff;
+}
+
+/* ===== Footer Contato ===== */
+footer.contact {
+    background: linear-gradient(135deg, #0b2046, #165ecd);
+    color: white;
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+footer.contact h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* Contato info boxes */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+.contact-box {
+    background-color: rgba(255 255 255 / 0.15);
+    border: 1px solid rgba(255 255 255 / 0.3);
+    border-radius: 8px;
+    padding: 20px 30px;
+    width: 280px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    transition: background-color 0.25s ease;
+    cursor: default;
+}
+
+.contact-box:hover {
+    background-color: rgba(255 255 255 / 0.25);
+}
+
+
+.contact-box h3 {
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 6px;
+    color: white;
+}
+
+.contact-box p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+/* Footer info final */
+.footer-info {
+    border-top: 1px solid rgba(255 255 255 / 0.4);
+    padding-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: #e2e8ff;
+}
+
+.footer-info p,
+.footer-info strong,
+.footer-info small {
+    margin-bottom: 5px;
+}
+
+.footer-info strong {
+    font-weight: 700;
+    display: block;
+}
+
+/* ===== Ajustes Responsivos ===== */
+@media (max-width: 840px) {
+    .features-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-cards .card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member {
+        width: 80%;
+        max-width: 320px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-box {
+        width: 80%;
+        max-width: 320px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <a href="index.php"  class="btn-voltar">Voltar</a>
+
+    <header class="hero">
+        <h1>InfraEduca</h1>
+        <p>Conectando comunidade escolar e infraestrutura para um ambiente educacional melhor</p>
+    </header>
+
+
+    <section class="about">
+        <h2>Sobre o InfraEduca</h2>
+        <p>Uma plataforma inovadora desenvolvida para transformar a gestão de infraestrutura educacional.</p>
+
+
+        <p class="description">
+           O <strong>InfraEduca</strong> é uma plataforma digital desenvolvida como parte de um Trabalho de Conclusão de Curso (TCC) do Instituto Federal Farroupilha – Campus São Borja. O projeto foi idealizado por <strong> Camila do Amaral Ferreira, Giovana Graziadei Gamarra, Leticia Pires Correa e Maiara Escobar do Nascimento,</strong> com orientação e apoio do <strong>MSc. Prof. Toni Ferreira Montenegro</strong>.
+        </p>
+        <p>
+        Esta plataforma tem como objetivo principal facilitar a comunicação entre a comunidade escolar e a gestão de infraestrutura do campus. Com o InfraEduca, busca-se agilizar e tornar mais acessível o processo de registro e resolução de problemas estruturais, promovendo um ambiente escolar mais <strong> seguro, inclusivo e adequado</strong> para o processo de ensino e aprendizagem. 
+        </p>
+
+        <div class="agenda-highlight">
+            <h4>Agenda 2030 - ODS 4</h4>
+            <p>
+                O projeto alinha-se aos princípios da <strong>Agenda 2030 da ONU</strong>, particularmente ao 
+                <strong>Objetivo de Desenvolvimento Sustentável 4 (ODS 4)</strong>, que visa garantir uma educação de qualidade, inclusiva e equitativa, em ambientes escolares adequados 
+                que favoreçam o bem-estar e o aprendizado de todos os estudantes.
+            </p>
+        </div>
+
+        <p>
+            A plataforma contribui diretamente para esse objetivo, oferecendo uma 
+            <strong>solução prática e eficiente</strong> para a identificação e encaminhamento de melhorias na infraestrutura da instituição, criando um ambiente mais digno e acolhedor para toda a 
+            <strong>comunidade acadêmica</strong>.
+        </p>
+    </section>
+
+
+    <section class="features-platform">
+        <h2>Funcionalidades da Plataforma</h2>
+        <p>Soluções práticas para uma comunicação eficiente e ambiente escolar melhor</p>
+
+
+        <div class="features-cards">
+            <div class="card">
+                <div class="icon institucional"></div>
+                <h3>Registro Rápido</h3>
+                <p>Permite o envio ágil de informações sobre questões relacionadas à infraestrutura da escola.</p>
+            </div>
+            <div class="card">
+                <div class="icon comunicacao"></div>
+                <h3>Comunicação Direta</h3>
+                <p>Garante um canal de interação eficiente entre os usuários e a gestão de infraestrutura.</p>
+            </div>
+            <div class="card">
+                <div class="icon participacao"></div>
+                <h3>Participação Ativa</h3>
+                <p>Estimula a colaboração de estudantes, professores e funcionários na melhoria do ambiente escolar.</p>
+            </div>
+            <div class="card">
+                <div class="icon ambiente"></div>
+                <h3>Ambiente Acolhedor</h3>
+                <p>Busca a criação de um espaço seguro e adequado para o desenvolvimento educacional de todos.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="team">
+        <h2>Nossa Equipe</h2>
+        <p>Estudantes comprometidas com a melhoria da educação</p>
+
+        <div class="feature-image">
+            <img src="equipe.png" alt="" />
+        </div>
+
+        <div class="members">
+            <div class="member">Camila do Amaral Ferreira</div>
+            <div class="member">Giovana Graziaidei Gamarra</div>
+            <div class="member">Leticia Pires Correa</div>
+            <div class="member">Maiara Escobar do Nascimento</div>
+            <div class="member">Toni Ferreira Montenegro
+            <div class="member-ori"><Small>Orientador</Small></div>
+            </div>
+        </div>         
+       
+    </section>
+
+
+    <footer class="contact">
+        <h2>Entre em Contato</h2>
+        <div class="contact-info">
+            <div class="contact-box email">
+                <h3> <strong>E-mail</strong> </h3>
+                <p> <br>contato@infraeduca.com.br</p>
+            </div>
+           <div class="contact-box endereco">
+    <h3><strong>Endereço</strong> </h3>
+    <a href="https://www.google.com/maps/search/?api=1&query=Instituto+Federal+Farroupilha+Campus+São+Borja+Rua+Otaviano+Castilho+Mendes+355+Betim+São+Borja+RS+97670000" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+        <p>Instituto Federal Farroupilha – Campus São Borja<br />
+        Rua Otaviano Castilho Mendes, 355<br />
+        Betim, São Borja - RS, 97670-000</p>
+    </a>  
+</div>
+        <div class="footer-info">
+            <p><strong>InfraEduca</strong></p>
+            <p>Trabalho de Conclusão de Curso - Instituto Federal Farroupilha, Campus São Borja</p>
+            <p><small>Contribuindo para uma educação de qualidade e ambientes escolares adequados</small></p>
+        </div>
+    </footer>
+</body>
+</html>
+
