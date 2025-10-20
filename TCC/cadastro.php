@@ -30,8 +30,10 @@ $sql = "INSERT INTO usuario (tipo, nome, curso, ano, email, senha) VALUES ('$tip
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+ <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <style>
-        * {
+        
+        *{
             box-sizing: border-box;
         }
         

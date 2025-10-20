@@ -1,4 +1,7 @@
 <?php
+session_start();
+$usuario_atual= $_SESSION['idusuario'];
+echo"u== $usuario_atual";
 include('conexao.php');
 $sql1 = "SELECT * FROM categoria";
 $resultado = mysqli_query($conexao, $sql1);
@@ -11,11 +14,23 @@ if(isset($_POST['botao'])){
     $titulo = htmlspecialchars($_POST['titulo']);
     $categoria = htmlspecialchars($_POST['tipo_problema']);
     $descricao = htmlspecialchars($_POST['descricao']);
-    $imagem = htmlspecialchars($_POST['imagem']);
-   
-    echo "'$titulo', '$descricao', '$categoria', '$imagem'";
+   // $imagem = htmlspecialchars($_POST['imagem']); 
+    
+    $extensao = strtolower(substr($_FILES['imagem']['name'], -4));
+    
+    $novo_nome = md5(time()).$extensao;
 
-$sql2 = "INSERT INTO relato (titulo, descricao, categoria_idcategoria, imagem) VALUES ('$titulo', '$descricao', '$categoria', '$imagem')";
+    $destino = 'imagens/';
+ 
+    $arquivo_tmp = $_FILES['imagem']['tmp_name'];
+ 
+    move_uploaded_file( $arquivo_tmp, $destino.$novo_nome);
+   
+    //echo "'$titulo', '$descricao', '$categoria', '$imagem'";
+
+    $imagem = $novo_nome;
+
+$sql2 = "INSERT INTO relato (titulo, descricao, imagem, usuario_idusuarios, categoria_idcategoria) VALUES ('$titulo', '$descricao', '$imagem', $usuario_atual, $categoria)";
 
  if (mysqli_query($conexao, $sql2)) {
         echo "<script>alert('Relato enviado com sucesso!');</script>";
@@ -168,18 +183,18 @@ button {
 button:hover {
     background-color: #004494;
 }
-
     </style>
+    
 </head>
 
 
 <body>
-     <a href="servicos.html"  class="btn-voltar">Voltar</a>
+     <a href="servicos.php"  class="btn-voltar">Voltar</a>
     
     <div class="container">
         <h1>Sistema de Relatos</h1>
         <h2>Novo Relato</h2>
-        <form action="relato.php" method="POST">
+        <form action="relato.php" method="POST" enctype="multipart/form-data">
 
                 <label for="titulo">Título do Relato</label>
             <input type="text" id="titulo" name="titulo" placeholder="Ex: Torneira com vazamento no banheiro do 2° andar" required>

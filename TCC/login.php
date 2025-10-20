@@ -48,12 +48,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $usuario = mysqli_fetch_assoc($resultado);
 
         if ($usuario['tipo'] === 'adm') {
-            $_SESSION["tipo"] = $usuario['tipo'];   //ver com o toni de acordo com o Rafael precisa de concatenação
+            $_SESSION["tipo"] = $usuario['tipo']; 
+            $_SESSION['idusuario'] = $usuario['idusuario'];
+            $_SESSION['nome'] = $usuario['nome'];
             header("Location: admin.php");
             exit();
         } else {
             $_SESSION["tipo"] = $usuario['tipo']; 
-            header("Location: servicos.html");
+            $_SESSION['idusuario'] = $usuario['idusuario'];
+             $_SESSION['nome'] = $usuario['nome'];
+            header("Location: servicos.php");
             exit();
         }
 
@@ -61,7 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<script>alert('Email ou senha incorretos. Por favor, tente novamente.');</script>";
     }
 }
-?>
+?> 
+
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -138,8 +143,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             text-align: center;
             margin-top: 10px;
         }
+            
     </style>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
 <div class="login-container">
     <h1>LOGIN</h1>
     <form method="POST" action="">
@@ -158,3 +171,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a href="cadastro.php">Cadastre-se</a>
     </div>
 </div>
+</body>
+</html>
